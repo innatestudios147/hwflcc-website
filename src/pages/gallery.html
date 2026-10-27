@@ -1,0 +1,47 @@
+<!--{
+  "path": "/gallery/",
+  "title": "Gallery",
+  "description": "Photos of the Umoya Energy – Hopefield Wind Farm and the flowering West Coast fynbos around it.",
+  "bodyClass": "page-inner"
+}-->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container page-hero-inner">
+        <p class="eyebrow eyebrow-sun">Gallery</p>
+        <h1 id="page-title" class="display-xl">Where wind meets <em>fynbos.</em></h1>
+        <p class="hero-lede">The Umoya Energy – Hopefield Wind Farm stands among the West Coast fynbos, 125&nbsp;km north of Cape Town on the R45.</p>
+      </div>
+    </section>
+
+    <section class="section container" aria-label="Photo gallery">
+      <div class="gallery" data-gallery>
+        <button class="gallery-item" type="button" data-full="/assets/img/community-01.jpg">
+          {{img:/assets/img/community-01.jpg|Wind turbines above yellow-flowering fynbos at the Hopefield Wind Farm|sizes=(min-width: 768px) 25vw, 50vw}}
+        </button>
+        <button class="gallery-item" type="button" data-full="/assets/img/community-06.jpg">
+          {{img:/assets/img/community-06.jpg|A wind turbine rising above fynbos and yellow wildflowers|sizes=(min-width: 768px) 25vw, 50vw}}
+        </button>
+        <button class="gallery-item" type="button" data-full="/assets/img/community-11.jpg">
+          {{img:/assets/img/community-11.jpg|White wildflowers in the foreground with wind turbines on the horizon|sizes=(min-width: 768px) 25vw, 50vw}}
+        </button>
+        <button class="gallery-item" type="button" data-full="/assets/img/community-12.jpg">
+          {{img:/assets/img/community-12.jpg|Pink fynbos in bloom beneath the wind farm|sizes=(min-width: 768px) 25vw, 50vw}}
+        </button>
+      </div>
+    </section>
+
+    <dialog class="lightbox" data-lightbox aria-label="Photo viewer">
+      <button class="lightbox-close" type="button" data-lightbox-close>{{icon:close}}<span class="sr-only">Close</span></button>
+      <img src="" alt="" data-lightbox-img>
+    </dialog>
+
+    <section class="section-band band-secondary" aria-labelledby="share-title">
+      <div class="container cta">
+        <p class="eyebrow">Share your story</p>
+        <h2 id="share-title" class="display-md">Part of a project we’ve supported?</h2>
+        <p class="lede">We’d love to hear how the work is going — and to share photos of the difference it is making in the community.</p>
+        <div class="btn-row btn-row-center">
+          <a class="btn btn-primary" href="/contact-us/">Get in touch {{icon:arrow}}</a>
+          <a class="btn btn-outline" href="/apply/">Apply for funding</a>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,40 @@
+[
+  {
+    "path": "assets/img/hero.jpg",
+    "sources": [
+      "https://hwflcc-green-horizon.lovable.app/assets/hero-C5NkLiik.jpg",
+      "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/lovp_7khyfks16v85g8kkbz1m27fsq3/1db4e805daed18f7d2cff736e7d93ddf_1792434510492.png"
+    ]
+  },
+  {
+    "path": "assets/img/og-image.jpg",
+    "sources": [
+      "https://hwflcc-green-horizon.lovable.app/assets/hero-C5NkLiik.jpg"
+    ]
+  },
+  {
+    "path": "assets/img/community-01.jpg",
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2025/03/1-6J7A3245.jpg"]
+  },
+  {
+    "path": "assets/img/community-06.jpg",
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2025/03/6-6J7A3310.jpg"]
+  },
+  {
+    "path": "assets/img/community-11.jpg",
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2025/03/11-6J7A3352.jpg"]
+  },
+  {
+    "path": "assets/img/community-12.jpg",
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2025/03/12-6J7A3378.jpg"]
+  },
+  {
+    "path": "downloads/HWFLCC-Application-for-Funding.pdf",
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2026/02/Hopefield-Local-Co_Application-for-Funding.pdf"]
+  },
+  {
+    "path": "apple-touch-icon.png",
+    "optional": true,
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2024/12/cropped-fav-180x180.png"]
+  }
+]

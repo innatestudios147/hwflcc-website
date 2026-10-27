@@ -1,0 +1,45 @@
+[build]
+  command = "node build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Old WordPress URLs → new pages
+[[redirects]]
+  from = "/blog/*"
+  to = "/gallery/"
+  status = 301
+
+[[redirects]]
+  from = "/community/*"
+  to = "/gallery/"
+  status = 301
+
+[[redirects]]
+  from = "/application-for-funding/*"
+  to = "/apply/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-content/uploads/2026/02/Hopefield-Local-Co_Application-for-Funding.pdf"
+  to = "/downloads/HWFLCC-Application-for-Funding.pdf"
+  status = 301
+
+[[redirects]]
+  from = "/home/*"
+  to = "/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

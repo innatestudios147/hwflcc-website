@@ -1,0 +1,83 @@
+<!--{
+  "path": "/contact-us/",
+  "title": "Contact us",
+  "description": "Contact the Hopefield Wind Farm Local Community Company — 26 Voortrekker Road, Hopefield, 7355.",
+  "bodyClass": "page-inner"
+}-->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container page-hero-inner">
+        <p class="eyebrow eyebrow-sun">Contact</p>
+        <h1 id="page-title" class="display-xl">Get in <em>touch.</em></h1>
+        <p class="hero-lede">Questions about funding, our strategy or a community project? Send us a message and we’ll get back to you.</p>
+      </div>
+    </section>
+
+    <section class="section container contact" aria-label="Contact details and form">
+      <form class="form-card" name="contact" method="POST" action="/contact-us/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden-field"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+        <h2 class="display-sm">Send a message</h2>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-phone">Phone <span class="optional">(optional)</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-org">Organisation <span class="optional">(optional)</span></label>
+            <input id="f-org" name="organisation" type="text" autocomplete="organization">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-topic">What is it about?</label>
+          <select id="f-topic" name="topic">
+            <option>General enquiry</option>
+            <option>Funding application</option>
+            <option>Community project</option>
+            <option>Media</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" rows="6" required></textarea>
+        </div>
+
+        <p class="form-note">We only use your details to respond to your enquiry. See our <a href="/privacy-policy/">privacy policy</a>.</p>
+        <button class="btn btn-primary" type="submit">Send message {{icon:arrow}}</button>
+      </form>
+
+      <aside class="contact-aside">
+        <div class="contact-card">
+          {{icon:pin:contact-icon}}
+          <div>
+            <h2 class="contact-title">Address</h2>
+            <address>26 Voortrekker Road<br>Hopefield, 7355<br>Western Cape</address>
+          </div>
+        </div>
+        <div class="contact-card">
+          {{icon:mail:contact-icon}}
+          <div>
+            <h2 class="contact-title">Funding applications</h2>
+            <p>Attention: Laverne Louw<br><a href="mailto:LaverneLouw@bloem-co.com">LaverneLouw@bloem-co.com</a></p>
+            <a class="link-arrow" href="/apply/">How to apply {{icon:arrow}}</a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Map showing 26 Voortrekker Road, Hopefield" src="https://www.google.com/maps?q=26+Voortrekker+Road,+Hopefield,+7355,+South+Africa&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </aside>
+    </section>
