@@ -9,7 +9,7 @@
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-content">
         <p class="pill">{{icon:wind}} Association incorporated under Section 21</p>
-        <h1 id="hero-title" class="hero-title">Harvesting the wind,<br><em>growing our community.</em></h1>
+        <h1 id="hero-title" class="hero-title"><span class="line"><span>Harvesting the wind,</span></span><span class="line"><span><em>growing our community.</em></span></span></h1>
         <p class="hero-lede">Hopefield Wind Farm Local Community Company turns clean, renewable energy into lasting benefit for the people of Hopefield.</p>
         <div class="hero-actions">
           <a class="btn btn-accent" href="#focus">Our impact {{icon:arrow}}</a>
@@ -29,7 +29,7 @@
       </div>
       <ul class="stats reveal" role="list">
         <li class="stat">
-          <span class="stat-value">176&nbsp;600</span>
+          <span class="stat-value" data-count="176600">176&nbsp;600</span>
           <span class="stat-label">MWh clean energy / year</span>
         </li>
         <li class="stat">
@@ -89,8 +89,8 @@
           <span style="--w:80%"></span><span style="--w:20%"></span>
         </div>
         <dl class="split-legend">
-          <div><dt><span class="dot dot-primary"></span>80%</dt><dd>Long-term, sustainable projects</dd></div>
-          <div><dt><span class="dot dot-accent"></span>20%</dt><dd>Smaller projects</dd></div>
+          <div><dt><span class="dot dot-primary"></span><span data-count="80" data-suffix="%">80%</span></dt><dd>Long-term, sustainable projects</dd></div>
+          <div><dt><span class="dot dot-accent"></span><span data-count="20" data-suffix="%">20%</span></dt><dd>Smaller projects</dd></div>
         </dl>
         <p class="split-note">Of the Local Company’s budget each year.</p>
       </div>
@@ -105,9 +105,9 @@
         <a class="link-arrow" href="/gallery/">See the gallery {{icon:arrow}}</a>
       </div>
       <div class="mosaic">
-        {{img:/assets/img/community-06.jpg|A wind turbine rising above fynbos and yellow wildflowers}}
-        {{img:/assets/img/community-11.jpg|White wildflowers in the foreground with wind turbines on the horizon|cls=offset}}
-        {{img:/assets/img/community-12.jpg|Pink fynbos in bloom beneath the wind farm}}
-        {{img:/assets/img/community-01.jpg|Wind turbines above yellow-flowering fynbos at the Hopefield Wind Farm|cls=offset}}
+        <div class="mosaic-item">{{img:/assets/img/community-06.jpg|A wind turbine rising above fynbos and yellow wildflowers}}</div>
+        <div class="mosaic-item offset">{{img:/assets/img/community-11.jpg|White wildflowers in the foreground with wind turbines on the horizon}}</div>
+        <div class="mosaic-item">{{img:/assets/img/community-12.jpg|Pink fynbos in bloom beneath the wind farm}}</div>
+        <div class="mosaic-item offset">{{img:/assets/img/community-01.jpg|Wind turbines above yellow-flowering fynbos at the Hopefield Wind Farm}}</div>
       </div>
     </section>

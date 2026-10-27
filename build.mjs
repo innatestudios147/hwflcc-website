@@ -37,8 +37,8 @@ const ICONS = {
   turbine: '<circle cx="12" cy="9" r="1.4"/><path d="M12 10.4V22"/><path d="M9.5 22h5"/><path d="M12 7.6 12.6 2c.1-.6-.7-.8-.9-.2L10.3 7.4"/><path d="m13.3 9.6 5 2.6c.5.3 1-.4.6-.8l-4.4-3.6"/><path d="m10.8 9.9-4.6 3.3c-.5.3-.1 1.1.5.9l5-2"/>',
 };
 
-const icon = (name, cls = "icon") =>
-  `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] ?? ""}</svg>`;
+const icon = (name, extra = "") =>
+  `<svg class="icon icon-${name}${extra ? " " + extra : ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] ?? ""}</svg>`;
 
 // Responsive image helper — uses Netlify Image CDN on deploy, plain file locally
 // The source photos are 600 px wide, so there is no point asking for larger renditions.
@@ -47,6 +47,13 @@ const img = (src, alt, { sizes = "(min-width: 768px) 25vw, 50vw", cls = "", eage
   const srcset = widths.map((w) => `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}&q=78 ${w}w`).join(", ");
   return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" alt="${alt}" class="${cls}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 };
+
+// Line-drawn wind turbine for the inner page heroes. The rotor is its own element so CSS can spin it on the compositor.
+const BLADE = "M0 0C2.4-10 3.6-30 1.3-46C.5-47.2-.7-46.8-1.1-45.6C-2.6-30-2.8-12-1.7-1.5Z";
+const TURBINE = `<div class="hero-turbine" aria-hidden="true">
+        <svg class="turbine-tower" viewBox="0 0 100 240" fill="currentColor"><path d="M48.4 52 46 240h8l-2.4-188z"/><rect x="45" y="46.5" width="13" height="7" rx="3"/></svg>
+        <svg class="turbine-rotor" viewBox="-50 -50 100 100" fill="currentColor"><path d="${BLADE}"/><path d="${BLADE}" transform="rotate(120)"/><path d="${BLADE}" transform="rotate(240)"/><circle r="3.4"/></svg>
+      </div>`;
 
 const NAV = [
   { href: "/#about", label: "About", match: null },
@@ -64,7 +71,7 @@ function parsePage(raw, file) {
 
 function render(template, data) {
   return template
-    .replace(/\{\{icon:([a-z]+)(?::([\w-]+))?\}\}/g, (_, n, c) => icon(n, c ? `icon ${c}` : "icon"))
+    .replace(/\{\{icon:([a-z]+)(?::([\w-]+))?\}\}/g, (_, n, c) => icon(n, c || ""))
     .replace(/\{\{img:([^|}]+)\|([^|}]*)(?:\|([^}]*))?\}\}/g, (_, src, alt, opts) => {
       const o = {};
       for (const part of (opts || "").split(";").filter(Boolean)) {
@@ -148,6 +155,7 @@ async function main() {
       bodyClass: meta.bodyClass || "",
       nav,
       year: String(YEAR),
+      heroTurbine: TURBINE,
       cssVersion,
       jsVersion,
       robots: meta.noindex ? '<meta name="robots" content="noindex">' : "",
