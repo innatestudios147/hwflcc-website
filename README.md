@@ -35,7 +35,9 @@ node build.mjs            # builds to dist/
 SKIP_ASSETS=1 node build.mjs   # offline build without fetching photos
 ```
 
-Photos and the funding application PDF are listed in `assets.json`. Any file not committed under `public/` is downloaded during the build — first from the old site, then from the live Netlify site — and the build fails rather than publish with a missing photo. To remove that dependency, download the files from the live site and commit them to `public/` at the same paths.
+The logo, favicons, photos and funding application PDF are committed under `public/`. `assets.json` is a fallback only: if one of those files is ever missing, the build downloads it from the old site or the live Netlify site, and fails rather than publish with a missing file.
+
+To replace the funding PDF, overwrite `public/downloads/HWFLCC-Application-for-Funding.pdf` and push.
 
 ## Contact form
 
