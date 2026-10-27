@@ -39,7 +39,14 @@
     X-Frame-Options = "SAMEORIGIN"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# Stylesheet and script URLs carry a content hash (?v=…), so they can be cached for a long time.
+# Everything else uses Netlify's default (always revalidate), so changes show up immediately.
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

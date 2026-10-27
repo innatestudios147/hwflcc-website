@@ -4,7 +4,8 @@
 // - Pulls in photos and the funding PDF listed in assets.json (if they are not already in public/)
 // Run locally with:  node build.mjs   (Node 18+)
 
-import { readFile, writeFile, mkdir, readdir, cp, stat } from "node:fs/promises";
+import { readFile, writeFile, mkdir, readdir, cp } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -115,8 +116,16 @@ async function fetchAssets() {
   return failures;
 }
 
+// Short content hash, used to version stylesheet and script URLs so browsers never keep a stale copy
+async function fileHash(rel) {
+  const buf = await readFile(path.join(PUBLIC, rel));
+  return createHash("sha256").update(buf).digest("hex").slice(0, 10);
+}
+
 async function main() {
   const layout = await readFile(path.join(SRC, "layout.html"), "utf8");
+  const cssVersion = await fileHash("assets/css/site.css");
+  const jsVersion = await fileHash("assets/js/site.js");
   await mkdir(DIST, { recursive: true });
   if (existsSync(PUBLIC)) await cp(PUBLIC, DIST, { recursive: true });
 
@@ -139,6 +148,8 @@ async function main() {
       bodyClass: meta.bodyClass || "",
       nav,
       year: String(YEAR),
+      cssVersion,
+      jsVersion,
       robots: meta.noindex ? '<meta name="robots" content="noindex">' : "",
     };
     data.content = render(body, data);
