@@ -33,8 +33,19 @@
     "sources": ["https://hwflcc.co.za/wp-content/uploads/2026/02/Hopefield-Local-Co_Application-for-Funding.pdf"]
   },
   {
+    "path": "assets/img/logo.png",
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2024/12/hopefield-windfarm-project.png"]
+  },
+  {
+    "path": "favicon-32x32.png",
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2024/12/cropped-fav-32x32.png"]
+  },
+  {
+    "path": "favicon-192x192.png",
+    "sources": ["https://hwflcc.co.za/wp-content/uploads/2024/12/cropped-fav-192x192.png"]
+  },
+  {
     "path": "apple-touch-icon.png",
-    "optional": true,
     "sources": ["https://hwflcc.co.za/wp-content/uploads/2024/12/cropped-fav-180x180.png"]
   }
 ]
