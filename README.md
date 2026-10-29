@@ -3,6 +3,8 @@
 Static website for the Hopefield Wind Farm Local Community Company (HWFLCC), hosted on Netlify.
 Design based on the Lovable "green horizon" concept; content migrated from the previous WordPress site.
 
+**Design standard:** [DESIGN.md](DESIGN.md) sets out the HWFLCC logo, colours, type, components, motion and writing rules. Follow it for any change to the site, and update it when a design decision changes. A copy is kept in the Hopefield project as `claude/DESIGN.md`; keep the two in step.
+
 ## Pages
 
 | URL | Source file |
