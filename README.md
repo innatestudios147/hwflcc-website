@@ -5,6 +5,13 @@ Design based on the Lovable "green horizon" concept; content migrated from the p
 
 **Design standard:** [DESIGN.md](DESIGN.md) sets out the HWFLCC logo, colours, type, components, motion and writing rules. Follow it for any change to the site, and update it when a design decision changes. A copy is kept in the Hopefield project as `claude/DESIGN.md`; keep the two in step.
 
+**Design skills for AI agents** (in `.claude/`, used by Claude Code when working in this repo):
+
+- `impeccable` v4.8.0 ([pbakaus/impeccable](https://github.com/pbakaus/impeccable)): design, audit, critique and polish commands, plus four helper agents in `.claude/agents/`. Update with `npx impeccable update`. Its engine program is downloaded per machine and is not committed.
+- `design-taste-frontend` ([Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)): art direction and an anti-slop check for marketing pages. Recorded in `skills-lock.json`; update with `npx skills update`.
+
+DESIGN.md wins where either skill's general advice disagrees with the HWFLCC standard.
+
 ## Pages
 
 | URL | Source file |
