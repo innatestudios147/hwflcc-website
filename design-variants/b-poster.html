@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Version B · Hopefield, loud and flat</title>
+<meta name="description" content="Hopefield Wind Farm Local Community Company: funding for education, social welfare, health and development within 50 km of the Hopefield Wind Farm.">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* Direction: Loud and flat (taste-skill seed 2068589693).
+   Idea: the town's name is a line the wind keeps pushing across its own turbines.
+   Type: Red Hat Display 900 (capitals) over Red Hat Text. Colour: HWFLCC brand at full strength, flat panels edge to edge. */
+:root {
+  color-scheme: light;
+  --paper: #FFFFFF;
+  --ink: #14171C;
+  --lime: #88C549;
+  --blue: #1893CF;
+  --deep: #0C5480;
+  --green: #16A755;
+  --soft-on-ink: #B9C0C8;
+
+  --display: "Red Hat Display", "Arial Black", sans-serif;
+  --text: "Red Hat Text", system-ui, sans-serif;
+
+  --step-small: 0.875rem;
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(3.25rem, 1.2rem + 5.6vw, 6.5rem);
+  --step-display: clamp(6rem, 1rem + 14vw, 14.5rem);
+
+  --m: 28px;
+  --gap: 24px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (max-width: 760px) { :root { --m: max(16px, env(safe-area-inset-left, 0px)); --gap: 12px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--step-body)/1.5 var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
+::selection { background: var(--ink); color: var(--lime); }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.d { font-family: var(--display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.92; }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); padding-inline: var(--m); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 26px; background: var(--ink); color: var(--paper); font: 500 1.0625rem/1.2 var(--text); text-decoration: none; transition: transform .16s var(--ease), background-color .15s, color .15s; }
+.btn:hover { background: var(--deep); }
+.btn:active { transform: scale(.97); }
+.js [data-rise] { opacity: 0; translate: 0 28px; transition: opacity .7s var(--ease) calc(var(--i, 0) * 80ms), translate .7s var(--ease) calc(var(--i, 0) * 80ms); }
+.js [data-rise].is-in { opacity: 1; translate: 0 0; }
+
+/* ---------- Hero: square over a moving line ---------- */
+.hero { position: relative; min-height: 100svh; background: var(--lime); overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; }
+.top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 24px var(--m); font-weight: 500; }
+.top a { text-decoration: none; }
+.top a:hover { text-decoration: underline; }
+.top .right { justify-self: end; }
+.plate { background: var(--paper); padding: 12px 16px; display: block; }
+.plate img { height: 40px; width: auto; }
+.stage { position: relative; }
+.square { position: absolute; z-index: 0; left: 50%; top: 210px; width: clamp(200px, 19vw, 300px); aspect-ratio: 1; translate: -50% -50%; overflow: hidden; }
+.square img { width: 100%; height: 100%; object-fit: cover; scale: 1.08; animation: drift 18s ease-in-out infinite alternate; }
+@keyframes drift { to { scale: 1.18; translate: -3% 2%; } }
+.band { position: absolute; z-index: 1; left: 0; right: 0; top: 210px; translate: 0 -50%; margin: 0; overflow: hidden; font-size: clamp(9rem, 15vw, 14.5rem); line-height: 0.92; padding-block: 0.06em; }
+.track { display: flex; width: max-content; white-space: nowrap; animation: slide var(--dur, 40s) linear infinite; }
+.track span { padding-right: 0.42em; position: relative; }
+.track span::after { content: ""; position: absolute; right: 0.1em; top: 50%; width: 0.24em; height: 0.24em; border-radius: 50%; background: currentColor; translate: 0 -40%; }
+.hero:hover .track { animation-play-state: paused; }
+@keyframes slide { to { transform: translateX(-50%); } }
+.claim { position: absolute; left: 50%; top: calc(210px + clamp(100px, 9.5vw, 150px) + 72px); translate: -50% 0; width: min(36ch, 90vw); text-align: center; }
+.claim p { margin: 0; font-size: 1.375rem; line-height: 1.35; font-weight: 500; }
+.claim .fact { margin-top: 18px; font-size: 1.0625rem; font-weight: 400; }
+.bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 0 var(--m) 40px; font-size: 1rem; }
+@media (max-height: 760px) and (min-width: 761px) { .square, .band { top: 180px; } .claim { top: calc(180px + clamp(100px, 9.5vw, 150px) + 48px); } }
+@media (max-width: 760px) {
+  .top { grid-template-columns: auto 1fr; gap: 12px; padding: 16px var(--m); }
+  .top .left { display: none; }
+  .plate { justify-self: start; padding: 8px 10px; }
+  .plate img { height: 30px; }
+  .square, .band { top: 30svh; }
+  .square { width: 46vw; }
+  .band { font-size: 34vw; }
+  .claim { top: calc(30svh + 23vw + 40px); }
+  .claim p { font-size: 1.125rem; }
+  .claim .fact { font-size: 1rem; }
+  .bottom { flex-direction: column; align-items: stretch; padding-bottom: 20px; }
+  .bottom .btn { width: 100%; }
+}
+
+/* ---------- Our wind: pinned title, photographs pass ---------- */
+.pass { position: relative; }
+.pin { position: sticky; top: 0; height: 100svh; display: grid; place-items: center; z-index: 2; pointer-events: none; }
+.pin h2 { margin: 0; font-size: clamp(5.5rem, 12vw, 11.25rem); line-height: 0.85; text-align: center; }
+.walk { margin-top: -100svh; padding-block: 24svh 30svh; display: grid; row-gap: 10svh; position: relative; z-index: 1; }
+.walk figure { margin: 0; width: clamp(220px, 26vw, 400px); }
+.walk figure:nth-child(odd) { margin-left: var(--m); }
+.walk figure:nth-child(even) { margin-left: auto; margin-right: var(--m); margin-top: -34svh; }
+.walk img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.walk figcaption { padding-top: 14px; max-width: 280px; }
+.walk b { display: block; font-size: 1.125rem; }
+.walk small { display: block; font-size: 0.875rem; color: #4E555D; }
+.walk span { display: block; margin-top: 8px; font-size: 1rem; }
+@media (max-width: 760px) {
+  .pin { place-items: start center; padding-top: 16px; }
+  .pin h2 { font-size: 17vw; }
+  .walk { row-gap: 48px; padding-block: 28svh 24svh; }
+  .walk figure { width: 72%; }
+  .walk figure:nth-child(odd) { margin-left: var(--m); }
+  .walk figure:nth-child(even) { margin-right: var(--m); margin-top: 0; }
+}
+
+/* ---------- How we spend: stepped figure tiles ---------- */
+.tiles { padding-block: 120px 120px; row-gap: 8px; column-gap: 8px; }
+.tiles h2 { grid-column: 7 / 13; grid-row: 1; margin: 0; align-self: end; font-size: clamp(1.75rem, 1rem + 1.4vw, 2.25rem); }
+.tile { position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 28px; }
+.tile strong { font: 900 clamp(3.5rem, 1rem + 4.6vw, 5.75rem)/0.9 var(--display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums lining-nums; }
+.tile p { margin: 0; font-size: 1.0625rem; max-width: 26ch; }
+.t1 { grid-column: 1 / 7; grid-row: 1 / 4; min-height: 70vh; background: var(--blue); }
+.t2 { grid-column: 7 / 10; grid-row: 2; min-height: 44vh; background: var(--ink); color: var(--paper); }
+.t2 strong { color: var(--lime); }
+.t3 { grid-column: 10 / 13; grid-row: 2 / 4; align-self: start; margin-top: 12vh; min-height: 34vh; background: var(--green); }
+.tiles { grid-template-rows: 14vh auto auto; }
+@media (max-width: 760px) {
+  .tiles { grid-template-columns: 1fr 1fr; grid-template-rows: auto; column-gap: 6px; row-gap: 6px; padding-block: 72px; }
+  .tiles h2 { grid-column: 1 / -1; grid-row: 1; margin-bottom: 12px; font-size: 1.625rem; }
+  .t1 { grid-column: 1 / -1; grid-row: 2; min-height: 56vw; }
+  .t2 { grid-column: 1; grid-row: 3; min-height: 48vw; }
+  .t3 { grid-column: 2; grid-row: 3; min-height: 48vw; margin-top: 32px; }
+  .tile { padding: 18px; }
+  .tile strong { font-size: 15vw; }
+  .t2 strong, .t3 strong { font-size: 11vw; }
+  .tile p { font-size: 0.9375rem; }
+}
+
+/* ---------- Where it goes: pinned heading, passing rows ---------- */
+.areas { background: var(--green); padding-block: 120px 160px; align-items: start; }
+.areas-intro { grid-column: 1 / 6; position: sticky; top: 40px; }
+.areas h2 { margin: 0; font-size: var(--step-head); }
+.areas-intro p { margin: 24px 0 0; max-width: 30ch; font-size: var(--step-lead); line-height: 1.35; }
+.blocks { grid-column: 6 / 13; display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--gap); row-gap: 72px; align-items: start; }
+.block:nth-child(even) { margin-top: 120px; }
+.block img { width: 100%; aspect-ratio: 4 / 3; }
+@media (max-width: 1024px) and (min-width: 761px) {
+  .areas-intro { grid-column: 1 / -1; position: static; display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--gap); align-items: end; }
+  .areas-intro p { margin: 0; }
+  .blocks { grid-column: 1 / -1; margin-top: 56px; grid-template-columns: 1fr 1fr; column-gap: var(--gap); row-gap: 72px; }
+  .block .pair, .block:nth-child(even) .pair { flex-direction: column; }
+  .block img { width: 100%; aspect-ratio: 4 / 3; }
+}
+.block h3 { margin: 0 0 20px; font: 900 1.75rem/1 var(--display); text-transform: uppercase; letter-spacing: -0.02em; }
+.block .pair { display: flex; flex-direction: column; gap: 24px; }
+.block img { object-fit: cover; }
+.block ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; font-size: 1.125rem; }
+@media (max-width: 760px) {
+  .areas { padding-block: 0 80px; }
+  .areas { padding-top: 72px; padding-bottom: 128px; }
+  .areas-intro { grid-column: 1 / -1; position: static; }
+  .areas h2 { font-size: 13vw; }
+  .areas-intro p { font-size: 1.125rem; margin-top: 16px; }
+  .blocks { grid-column: 1 / -1; grid-template-columns: 1fr; row-gap: 72px; margin-top: 40px; }
+  .block:nth-child(even) { margin-top: 0; }
+  .block .pair, .block:nth-child(even) .pair { flex-direction: column; }
+  .block img { width: 100%; aspect-ratio: 4 / 3; }
+  .block ul { font-size: 1.0625rem; }
+}
+
+/* ---------- How to apply: one verb at a time ---------- */
+.verbs { margin: 0; padding: 0; list-style: none; }
+.panel { position: relative; height: 100svh; overflow: clip; padding-top: 20px; }
+.panel .pic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.panel .verb { position: relative; z-index: 1; text-align: center; margin: 0; padding-top: 0.04em; font-size: clamp(6rem, 17vw, 18.75rem); line-height: 0.85; }
+@supports (animation-timeline: view()) {
+  .panel .verb { animation: verb-in linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
+  .p2 .verb { animation-name: verb-in-r; }
+}
+@keyframes verb-in { from { translate: -14% 0; } }
+@keyframes verb-in-r { from { translate: 14% 0; } }
+.panel .say { position: absolute; left: var(--m); bottom: 32px; z-index: 1; margin: 0; max-width: 34ch; font-size: 1.125rem; padding: 18px 20px; }
+.p1 { background: var(--ink); color: var(--paper); }
+.p1 .pic { opacity: 0.72; }
+.p1 .say { background: rgb(20 23 28 / 0.78); }
+.p2 { background: var(--blue); color: var(--ink); }
+.p3 { background: var(--lime); color: var(--ink); }
+.p2, .p3 { height: auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; column-gap: var(--gap); row-gap: 48px; padding: 24px var(--m) 96px; }
+.p2 .verb, .p3 .verb { grid-column: 1 / -1; }
+.p2 .cut, .p3 .cut { width: clamp(220px, 24vw, 360px); aspect-ratio: 3 / 4; object-fit: cover; justify-self: center; }
+.p2 .cut { grid-column: 2; grid-row: 2; rotate: 4deg; }
+.p3 .cut { grid-column: 1; grid-row: 2; rotate: -5deg; }
+.p2 .say, .p3 .say { position: static; grid-row: 2; padding: 0; max-width: 24ch; font-size: var(--step-lead); line-height: 1.3; justify-self: center; }
+.p2 .say { grid-column: 1; }
+.p3 .say { grid-column: 2; }
+@media (max-width: 760px) {
+  .panel .verb { font-size: 17vw; }
+  .panel .say { left: var(--m); right: var(--m); bottom: 16px; max-width: none; font-size: 1rem; }
+  .p2, .p3 { grid-template-columns: minmax(0, 1fr); row-gap: 32px; padding-bottom: 64px; }
+  .p2 .cut, .p3 .cut, .p2 .say, .p3 .say { grid-column: 1; }
+  .p2 .cut, .p3 .cut { grid-row: 2; }
+  .p2 .say, .p3 .say { grid-row: 3; }
+  .p2 .cut, .p3 .cut { width: 56vw; }
+  .p2 .say, .p3 .say { justify-self: start; max-width: none; font-size: 1.125rem; }
+}
+
+/* ---------- Does it fit? ---------- */
+.check { background: var(--deep); color: var(--paper); padding-block: 120px; row-gap: 40px; align-items: start; }
+.check-intro { grid-column: 1 / 6; position: sticky; top: 40px; }
+.check h2 { margin: 0; font-size: var(--step-head); color: #A8D672; }
+.check-intro p { margin: 24px 0 0; max-width: 32ch; font-size: var(--step-lead); line-height: 1.35; }
+.fit { grid-column: 7 / 13; display: grid; gap: 30px; }
+.fit fieldset { margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.fit legend { width: 100%; padding: 0; margin-bottom: 12px; font: 900 1.25rem/1 var(--display); text-transform: uppercase; }
+.fit label { position: relative; }
+.fit input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.fit label span { display: inline-flex; align-items: center; min-height: 48px; padding: 10px 18px; background: var(--paper); color: var(--ink); font-weight: 500; cursor: pointer; transition: background-color .12s; }
+.fit label:hover span { background: #DCEFF9; }
+.fit input:checked + span { background: var(--lime); }
+.fit input:focus-visible + span { outline: 3px solid var(--lime); outline-offset: 3px; }
+.fit-result { padding: 28px; background: var(--paper); color: var(--ink); }
+.fit-result[data-state="yes"] { background: var(--lime); }
+.fit-result[data-state="no"] { background: #FFD9B8; }
+.fit-title { margin: 0; font: 900 2rem/1 var(--display); text-transform: uppercase; letter-spacing: -0.02em; }
+.fit-body { margin: 12px 0 0; }
+.fit-list { margin: 12px 0 0; padding-left: 1.2em; }
+.fit-actions { margin: 18px 0 0; }
+.fit-link { font-weight: 500; }
+.fit-note { margin: 16px 0 0; font-size: var(--step-small); }
+@media (max-width: 760px) {
+  .check { padding-block: 80px; }
+  .check-intro, .fit { grid-column: 1 / -1; position: static; }
+}
+
+/* ---------- Wall of word tiles ---------- */
+.wall { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 8px; }
+.cell { position: relative; aspect-ratio: 1; display: grid; grid-template-rows: 1fr auto; justify-items: center; align-items: center; overflow: hidden; margin: 0; padding-bottom: 16px; }
+.cell .w { font: 900 clamp(3rem, 1rem + 6vw, 7.5rem)/0.9 var(--display); letter-spacing: -0.04em; text-transform: uppercase; text-align: center; font-variant-numeric: lining-nums; }
+.cell .w.long { font-size: clamp(2.25rem, 0.5rem + 4.2vw, 5.5rem); }
+.cell figcaption, .cell .cap { position: relative; padding-inline: 16px; text-align: center; font-size: var(--step-small); font-weight: 500; }
+.cell img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.c-lime { background: var(--lime); color: var(--ink); }
+.c-blue { background: var(--blue); color: var(--ink); }
+.c-ink { background: var(--ink); color: var(--lime); }
+.c-ink .cap { color: var(--paper); }
+.c-green { background: var(--green); color: var(--ink); }
+.c-deep { background: var(--deep); color: var(--paper); }
+.wall h2 { margin: 0; }
+@media (max-width: 760px) {
+  .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 6px; }
+  .cell .w { font-size: 15vw; align-self: end; }
+  .cell .w.long { font-size: 10vw; }
+  .cell h2.w { font-size: 11vw; }
+  .cell .cap { font-size: 0.8125rem; }
+  .cell { padding-bottom: 12px; }
+}
+
+/* ---------- Question at both edges ---------- */
+.ask { position: relative; grid-template-columns: minmax(0, 1fr); min-height: 100svh; background: var(--ink); color: var(--paper); display: grid; grid-template-rows: auto 1fr auto; padding: 32px var(--m) 24px; text-align: center; }
+.ask h2 { display: contents; }
+.ask h2 span { display: block; font-size: clamp(6.5rem, 11vw, 10.5rem); }
+.ask h2 span:first-child { grid-row: 1; color: var(--lime); }
+.ask h2 span:last-child { grid-row: 3; }
+.ask .choice { grid-row: 2; align-self: center; display: grid; justify-items: center; gap: 16px; }
+.ask .row { display: flex; align-items: center; gap: 40px; }
+.ask .or { color: var(--soft-on-ink); font-size: 1.125rem; }
+.ask .btn { min-width: 220px; min-height: 56px; font-size: 1.125rem; }
+.ask .b1 { background: var(--lime); color: var(--ink); }
+.ask .b1:hover { background: var(--paper); }
+.ask .b2 { background: var(--paper); color: var(--ink); }
+.ask .b2:hover { background: var(--blue); }
+.ask .then { margin: 0; color: var(--soft-on-ink); font-size: 1rem; }
+@media (max-width: 760px) {
+  .ask { min-height: 92svh; }
+  .ask h2 span { font-size: 15vw; }
+  .ask .row { flex-direction: column; gap: 12px; width: 72vw; }
+  .ask .btn { width: 100%; min-width: 0; }
+}
+
+/* ---------- Footer: the mark, built large ---------- */
+.foot { background: var(--ink); color: var(--paper); padding: 8px var(--m) 32px; }
+.blocks-word { display: flex; align-items: flex-end; gap: 4px; height: 34svh; min-height: 200px; }
+.blocks-word span { flex: 1; display: grid; place-items: end center; padding-bottom: 0.08em; font: 900 clamp(3rem, 1rem + 7vw, 9rem)/0.8 var(--display); color: var(--ink); text-transform: uppercase; }
+.blocks-word span:nth-child(5n+1) { background: var(--lime); height: 100%; }
+.blocks-word span:nth-child(5n+2) { background: var(--blue); height: 78%; }
+.blocks-word span:nth-child(5n+3) { background: var(--paper); height: 64%; }
+.blocks-word span:nth-child(5n+4) { background: var(--green); height: 90%; }
+.blocks-word span:nth-child(5n+5) { background: var(--lime); height: 70%; }
+.foot-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); margin-top: 56px; }
+.foot-grid nav { grid-column: span 2; }
+.foot-grid h3 { margin: 0 0 12px; font: 900 1rem/1 var(--display); text-transform: uppercase; color: var(--lime); }
+.foot-grid ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 0.9375rem; }
+.foot-grid a { text-decoration: none; }
+.foot-grid a:hover { text-decoration: underline; }
+.foot-grid address { grid-column: 9 / 13; font-style: normal; font-size: 0.9375rem; }
+.foot-base { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 48px; font-size: var(--step-small); color: var(--soft-on-ink); }
+.foot-base .btn { background: var(--lime); color: var(--ink); min-height: 44px; font-size: 0.9375rem; }
+@media (max-width: 760px) {
+  .blocks-word { height: 22svh; min-height: 140px; gap: 3px; }
+  .blocks-word span { font-size: 9vw; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .foot-grid nav, .foot-grid address { grid-column: auto; }
+  .foot-grid address { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; transform: translateX(calc(50vw - 25%)); }
+  .square img, .panel .verb { animation: none; }
+  .js [data-rise] { opacity: 1; translate: none; transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="top">
+    <a class="left" href="https://hwflcc.netlify.app/our-strategy/">Our strategy</a>
+    <a class="plate" href="#" aria-label="Hopefield Wind Farm Local Community Company, home"><img src="img/logo.png" width="825" height="190" alt="Hopefield Wind Farm Local Community Company"></a>
+    <a class="right" href="https://hwflcc.netlify.app/contact-us/">Contact</a>
+  </div>
+  <div class="stage">
+    <div class="square"><img src="img/community-11.jpg" width="600" height="900" alt="White wildflowers in the foreground with wind turbines on the horizon" style="object-position: 50% 18%"></div>
+    <h1 class="band d"><span class="sr-only">Hopefield Wind Farm Local Community Company</span><span class="track" aria-hidden="true" data-track><span>Hopefield</span><span>Hopefield</span><span>Hopefield</span><span>Hopefield</span><span>Hopefield</span><span>Hopefield</span></span></h1>
+    <div class="claim">
+      <p>We turn clean, renewable energy into lasting benefit for communities within 50&nbsp;km of the Hopefield Wind Farm.</p>
+      <p class="fact">Hopefield Wind Farm Local Community Company · Section&nbsp;21 association</p>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>26 Voortrekker Road, Hopefield, 7355</span>
+    <a class="btn" href="#fit">Apply for funding</a>
+  </div>
+</header>
+
+<main>
+  <section class="pass" aria-labelledby="wind-h">
+    <div class="pin"><h2 id="wind-h" class="d">Our<br>wind</h2></div>
+    <div class="walk" data-rise-group>
+      <figure data-rise><img src="img/community-01.jpg" width="600" height="900" alt="Wind turbines above yellow-flowering fynbos at the Hopefield Wind Farm" loading="lazy"><figcaption><b>125&nbsp;km north of Cape Town</b><small>On the R45</small><span>The Umoya Energy – Hopefield Wind Farm stands in the Saldanha Bay Municipality on the West Coast.</span></figcaption></figure>
+      <figure data-rise><img src="img/community-06.jpg" width="600" height="900" alt="A wind turbine rising above fynbos and yellow wildflowers" loading="lazy"><figcaption><b>Online since 2014</b><small>1 February 2014</small><span>Commercial operation began just over a year after construction started.</span></figcaption></figure>
+      <figure data-rise><img src="img/community-12.jpg" width="600" height="900" alt="Pink fynbos in bloom beneath the wind farm" loading="lazy"><figcaption><b>First in South Africa</b><small>A national milestone</small><span>It was the first commercial wind farm in the country to reach commercial operation.</span></figcaption></figure>
+      <figure data-rise><img src="img/community-11.jpg" width="600" height="900" alt="White wildflowers with wind turbines on the horizon" loading="lazy" style="object-position: 50% 70%"><figcaption><b>176&nbsp;600 MWh a year</b><small>Clean, renewable energy</small><span>Approximately how much electricity the wind farm generates every year.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="tiles grid" aria-labelledby="spend-h">
+    <h2 id="spend-h" class="d">How we spend</h2>
+    <div class="tile t1" data-rise><strong><span data-count="80">80</span>%</strong><p>of each year's budget goes to long-term, sustainable projects.</p></div>
+    <div class="tile t2" data-rise><strong><span data-count="20">20</span>%</strong><p>goes to smaller projects.</p></div>
+    <div class="tile t3" data-rise><strong><span data-count="50">50</span>&nbsp;km</strong><p>The radius around the wind farm where we fund communities.</p></div>
+  </section>
+
+  <section class="areas grid" aria-labelledby="areas-h">
+    <div class="areas-intro"><h2 id="areas-h" class="d">Where it<br>goes</h2>
+    <p>Four areas, chosen for the communities around the wind farm.</p></div>
+    <div class="blocks">
+      <article class="block" data-rise><h3>Education</h3><div class="pair"><img src="img/community-11.jpg" width="600" height="900" alt="White wildflowers with wind turbines on the horizon" loading="lazy"><ul><li>Scholarships and bursaries</li><li>Adult Basic Education &amp; Training</li><li>After-school programmes</li><li>Teaching, curriculum and governance support</li><li>Infrastructure at schools</li></ul></div></article>
+      <article class="block" data-rise><h3>Social welfare</h3><div class="pair"><img src="img/community-06.jpg" width="600" height="900" alt="A wind turbine rising above fynbos and yellow wildflowers" loading="lazy"><ul><li>The elderly, the abused and people with disabilities</li><li>Empowerment and development of women</li><li>Children with special needs</li><li>Community infrastructure</li></ul></div></article>
+      <article class="block" data-rise><h3>Health</h3><div class="pair"><img src="img/community-12.jpg" width="600" height="900" alt="Pink fynbos in bloom beneath the wind farm" loading="lazy"><ul><li>Healthcare programmes</li><li>Health initiatives</li><li>Better access to quality healthcare</li></ul></div></article>
+      <article class="block" data-rise><h3>Development</h3><div class="pair"><img src="img/community-01.jpg" width="600" height="900" alt="Wind turbines above yellow-flowering fynbos" loading="lazy"><ul><li>Training and support for small businesses</li><li>Self-help and skills projects</li><li>Skills and leadership for young people</li><li>Local sport and cultural clubs</li></ul></div></article>
+    </div>
+  </section>
+
+  <ol class="verbs" aria-label="How to apply">
+    <li class="panel p1"><img class="pic" src="img/hero.jpg" width="1920" height="1088" alt="Wind turbines over fynbos hills at sunset" loading="lazy"><h2 class="verb d">Check</h2><p class="say">Make sure your project is in education, social welfare, health or development, and serves the Saldanha Bay Local Municipality.</p></li>
+    <li class="panel p2"><img class="cut" src="img/community-06.jpg" width="600" height="900" alt="" loading="lazy"><h3 class="verb d">Prepare</h3><p class="say">Complete the application form, write a proposal and attach your registration documents, a funding request letter and quotations.</p></li>
+    <li class="panel p3"><img class="cut" src="img/community-12.jpg" width="600" height="900" alt="" loading="lazy"><h3 class="verb d">Send</h3><p class="say">Post or deliver it to 26 Voortrekker Road, Hopefield, 7355.</p></li>
+  </ol>
+
+  <section class="check grid" id="fit" aria-labelledby="check-h">
+    <div class="check-intro">
+      <h2 id="check-h" class="d" data-rise>Does it<br>fit?</h2>
+      <p data-rise>Four questions against our funding rules. You'll know whether to apply and what to send.</p>
+    </div>
+    <form class="fit" data-fit aria-labelledby="check-h">
+      <fieldset><legend>Who is applying?</legend>
+        <label><input type="radio" name="who" value="ngo"><span>Registered NGO</span></label>
+        <label><input type="radio" name="who" value="school"><span>School</span></label>
+        <label><input type="radio" name="who" value="ecd"><span>ECD centre</span></label>
+        <label><input type="radio" name="who" value="student"><span>Student</span></label>
+        <label><input type="radio" name="who" value="individual"><span>Local individual</span></label>
+        <label><input type="radio" name="who" value="company"><span>Private company</span></label>
+        <label><input type="radio" name="who" value="party"><span>Political party or union</span></label>
+      </fieldset>
+      <fieldset><legend>What is it for?</legend>
+        <label><input type="radio" name="area" value="education"><span>Education</span></label>
+        <label><input type="radio" name="area" value="welfare"><span>Social welfare</span></label>
+        <label><input type="radio" name="area" value="health"><span>Health</span></label>
+        <label><input type="radio" name="area" value="development"><span>Skills, business, sport or culture</span></label>
+        <label><input type="radio" name="area" value="other"><span>Something else</span></label>
+      </fieldset>
+      <fieldset><legend>Where does it serve people?</legend>
+        <label><input type="radio" name="where" value="sbm"><span>Saldanha Bay Municipality</span></label>
+        <label><input type="radio" name="where" value="elsewhere"><span>Somewhere else</span></label>
+      </fieldset>
+      <fieldset><legend>Costs already paid?</legend>
+        <label><input type="radio" name="paid" value="no"><span>No, not yet</span></label>
+        <label><input type="radio" name="paid" value="yes"><span>Yes, already paid</span></label>
+      </fieldset>
+      <div class="fit-result" data-fit-result aria-live="polite"><p class="fit-title">Answer four quick questions.</p></div>
+    </form>
+  </section>
+
+  <section class="wall" aria-labelledby="facts-h">
+    <div class="cell c-lime"><h2 id="facts-h" class="w">Facts</h2><span class="cap">The wind farm, briefly</span></div>
+    <div class="cell c-blue"><span class="w">R45</span><span class="cap">The road north from Cape Town</span></div>
+    <figure class="cell"><img src="img/community-06.jpg" width="600" height="900" alt="A wind turbine rising above fynbos and yellow wildflowers" loading="lazy" style="object-position: 50% 30%"></figure>
+    <div class="cell c-ink"><span class="w">125</span><span class="cap">Kilometres from Cape Town</span></div>
+    <div class="cell c-green"><span class="w">2014</span><span class="cap">Commercial operation</span></div>
+    <div class="cell c-deep"><span class="w">#1</span><span class="cap">First commercial wind farm in SA</span></div>
+    <figure class="cell"><img src="img/community-12.jpg" width="600" height="900" alt="Pink fynbos in bloom beneath the wind farm" loading="lazy" style="object-position: 50% 40%"></figure>
+    <div class="cell c-lime"><span class="w long">176&nbsp;600</span><span class="cap">Megawatt-hours a year</span></div>
+    <div class="cell c-ink"><span class="w">4</span><span class="cap">Areas we fund</span></div>
+    <figure class="cell"><img src="img/community-01.jpg" width="600" height="900" alt="Wind turbines above yellow-flowering fynbos" loading="lazy" style="object-position: 50% 35%"></figure>
+    <div class="cell c-blue"><span class="w">85%</span><span class="cap">Of spending for previously disadvantaged people</span></div>
+    <div class="cell c-green"><span class="w">S21</span><span class="cap">Section 21 association</span></div>
+  </section>
+
+  <section class="ask" aria-labelledby="ask-h">
+    <h2 id="ask-h" class="d"><span>Have a</span> <span>project?</span></h2>
+    <div class="choice">
+      <div class="row">
+        <a class="btn b1" href="https://hwflcc.netlify.app/apply/">Apply for funding</a>
+        <span class="or">or</span>
+        <a class="btn b2" href="https://hwflcc.netlify.app/contact-us/">Ask us a question</a>
+      </div>
+      <p class="then">The application page has the guidelines, the criteria and the form.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="blocks-word" aria-hidden="true"><span>H</span><span>O</span><span>P</span><span>E</span><span>F</span><span>I</span><span>E</span><span>L</span><span>D</span></div>
+  <div class="foot-grid">
+    <nav aria-label="Explore"><h3>Explore</h3><ul><li><a href="https://hwflcc.netlify.app/our-strategy/">Our strategy</a></li><li><a href="https://hwflcc.netlify.app/gallery/">Gallery</a></li></ul></nav>
+    <nav aria-label="Funding"><h3>Funding</h3><ul><li><a href="https://hwflcc.netlify.app/apply/">How to apply</a></li><li><a href="https://hwflcc.netlify.app/downloads/HWFLCC-Application-for-Funding.pdf">Application form (PDF)</a></li></ul></nav>
+    <nav aria-label="Contact"><h3>Contact</h3><ul><li><a href="https://hwflcc.netlify.app/contact-us/">Send a message</a></li><li><a href="https://hwflcc.netlify.app/privacy-policy/">Privacy policy</a></li></ul></nav>
+    <address>Hopefield Wind Farm Local Community Company<br>26 Voortrekker Road, Hopefield, 7355<br>Western Cape</address>
+  </div>
+  <div class="foot-base"><span>© 2026 Hopefield Wind Farm Local Community Company · Association incorporated under Section 21</span><a class="btn" href="https://hwflcc.netlify.app/apply/">Apply</a></div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+// Keep the moving name at a slow, constant 40px a second whatever the screen width.
+(() => {
+  const tracks = document.querySelectorAll("[data-track]");
+  const set = () => tracks.forEach((t) => t.style.setProperty("--dur", `${(t.scrollWidth / 2) / 40}s`));
+  document.fonts.ready.then(set);
+  addEventListener("resize", set);
+})();
+</script>
+</body>
+</html>

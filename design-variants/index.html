@@ -1,0 +1,150 @@
+<title>Hopefield homepage options</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Three design directions for the Hopefield Wind Farm Local Community Company homepage, side by side.">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* Layout: one row per version, words on the left, its first screen at desktop and phone on the right. */
+:root {
+  --bg: #FFFFFF;
+  --fg: #14171C;
+  --soft: #4F5660;
+  --rule: #DDE3E8;
+  --panel: #F2F6F8;
+  --link: #11709F;
+  --a: #0F7A3D; --a-on: #FFFFFF;
+  --b: #88C549; --b-on: #14171C;
+  --c: #0C5480; --c-on: #FFFFFF;
+  --font: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Big Shoulders", "Arial Narrow", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #101317; --fg: #EEF1F4; --soft: #A9B1BA; --rule: #2A3138; --panel: #181D22; --link: #6CC0EA; --c: #1893CF; --c-on: #14171C; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #101317; --fg: #EEF1F4; --soft: #A9B1BA; --rule: #2A3138; --panel: #181D22; --link: #6CC0EA; --c: #1893CF; --c-on: #14171C; color-scheme: dark; }
+
+body { background: var(--bg); color: var(--fg); font: 400 1rem/1.55 var(--font); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+
+.top { padding-block: 40px 56px; display: grid; gap: 20px; }
+.logo { display: inline-block; background: #FFFFFF; padding: 10px 14px; justify-self: start; }
+.logo img { height: 34px; width: auto; display: block; }
+.top h1 { font: 800 clamp(2.75rem, 1.6rem + 4.4vw, 5rem)/0.92 var(--display); text-transform: uppercase; letter-spacing: 0; }
+.top p { margin: 0; max-width: 62ch; font-size: 1.125rem; }
+.top .note { font-size: 0.9375rem; color: var(--soft); }
+
+.version { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; padding-block: 48px; border-top: 1px solid var(--rule); align-items: start; }
+.head { display: flex; align-items: center; gap: 16px; }
+.mark { display: grid; place-items: center; width: 56px; height: 56px; flex: none; font: 800 2rem/1 var(--display); }
+.v-a .mark { background: var(--a); color: var(--a-on); }
+.v-b .mark { background: var(--b); color: var(--b-on); }
+.v-c .mark { background: var(--c); color: var(--c-on); }
+.head h2 { font: 700 1.75rem/1.1 var(--font); letter-spacing: -0.01em; }
+.idea { margin: 20px 0 0; font-size: 1.25rem; line-height: 1.4; }
+dl { margin: 24px 0 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 20px; font-size: 0.9375rem; }
+dt { color: var(--soft); }
+dd { margin: 0; }
+.open { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 10px 20px; font-weight: 600; text-decoration: none; }
+.v-a .btn { background: var(--a); color: var(--a-on); }
+.v-b .btn { background: var(--b); color: var(--b-on); }
+.v-c .btn { background: var(--c); color: var(--c-on); }
+.btn:hover { filter: brightness(1.08); }
+.shots { display: grid; grid-template-columns: minmax(0, 4.2fr) minmax(0, 1fr); gap: 16px; align-items: end; margin: 0; }
+.shots a { display: block; }
+.shots img { display: block; width: 100%; height: auto; background: var(--panel); outline: 1px solid var(--rule); outline-offset: -1px; }
+.shots figcaption { grid-column: 1 / -1; font-size: 0.875rem; color: var(--soft); }
+
+.same { border-top: 1px solid var(--rule); padding-block: 48px 72px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; }
+.same h2 { font: 700 1.75rem/1.1 var(--font); }
+.same ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+.same .next { grid-column: 2; margin: 8px 0 0; padding: 20px 24px; background: var(--panel); font-size: 1.0625rem; }
+
+@media (max-width: 860px) {
+  .version, .same { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 40px; }
+  .same .next { grid-column: 1; }
+  .shots { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 10px; }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="logo"><img src="img/logo.png" width="825" height="190" alt="Hopefield Wind Farm Local Community Company"></span>
+    <h1>Three directions for the homepage</h1>
+    <p>Each version uses the same logo, colours, words and photographs, and the same "Does your project fit?" checker. What changes is the type, the layout and how the page moves. Open each one on a computer and on your phone, and scroll all the way down.</p>
+    <p class="note">These are homepages only. Links to other pages open the current live site.</p>
+  </header>
+
+  <section class="version v-a" aria-labelledby="a-h">
+    <div>
+      <div class="head"><span class="mark" aria-hidden="true">A</span><h2 id="a-h">The sentence</h2></div>
+      <p class="idea">The headline &ldquo;The wind works for Hopefield&rdquo; splits in two, and the wind farm&rsquo;s photographs pass through the gap as you scroll.</p>
+      <dl>
+        <dt>Feel</dt><dd>Calm and editorial. Mostly white, with colour saved for the four funding areas.</dd>
+        <dt>Type</dt><dd>Big Shoulders, a tall condensed face, over Public Sans.</dd>
+        <dt>Look for</dt><dd>The photo frame in the headline, the figures that count up, the funding areas as colour fields, &ldquo;Wind meets fynbos&rdquo; with photos between the words, and the whole lime &ldquo;Apply&rdquo; band as one button.</dd>
+        <dt>Trade-off</dt><dd>The quietest of the three. Its best moment needs a wide screen.</dd>
+      </dl>
+      <div class="open"><a class="btn" href="a-sentence.html">Open version A</a></div>
+    </div>
+    <figure class="shots">
+      <a href="a-sentence.html" aria-label="Open version A"><img src="img/thumbs/a-d.jpg" width="1200" height="750" alt="Version A on a computer: the headline The wind works for Hopefield, split by a tall photograph of turbines at sunset"></a>
+      <a href="a-sentence.html" aria-label="Open version A on its own"><img src="img/thumbs/a-m.jpg" width="390" height="844" alt="Version A on a phone"></a>
+      <figcaption>First screen on a computer and on a phone</figcaption>
+    </figure>
+  </section>
+
+  <section class="version v-b" aria-labelledby="b-h">
+    <div>
+      <div class="head"><span class="mark" aria-hidden="true">B</span><h2 id="b-h">The poster</h2></div>
+      <p class="idea">The town&rsquo;s name is a band the wind keeps pushing across the page, passing over a window onto the turbines.</p>
+      <dl>
+        <dt>Feel</dt><dd>Loud and flat, like a printed poster. The most colour and the biggest type.</dd>
+        <dt>Type</dt><dd>Red Hat Display Black in capitals, over Red Hat Text.</dd>
+        <dt>Look for</dt><dd>The moving &ldquo;Hopefield&rdquo; band, &ldquo;Our wind&rdquo; held still while photos pass, the steps as three posters (Check, Prepare, Send), a wall of fact tiles, and the name in coloured blocks in the footer.</dd>
+        <dt>Trade-off</dt><dd>The boldest and most memorable, and the busiest. The name keeps moving (it pauses under the mouse and stops for visitors who turn motion off).</dd>
+      </dl>
+      <div class="open"><a class="btn" href="b-poster.html">Open version B</a></div>
+    </div>
+    <figure class="shots">
+      <a href="b-poster.html" aria-label="Open version B"><img src="img/thumbs/b-d.jpg" width="1200" height="750" alt="Version B on a computer: HOPEFIELD in huge black capitals across a lime background, over a small square photograph"></a>
+      <a href="b-poster.html" aria-label="Open version B on its own"><img src="img/thumbs/b-m.jpg" width="390" height="844" alt="Version B on a phone"></a>
+      <figcaption>First screen on a computer and on a phone</figcaption>
+    </figure>
+  </section>
+
+  <section class="version v-c" aria-labelledby="c-h">
+    <div>
+      <div class="head"><span class="mark" aria-hidden="true">C</span><h2 id="c-h">Colour chapters</h2></div>
+      <p class="idea">Each funding area owns one brand colour, and the whole page is built from those four colours: Education deep blue, Social welfare green, Health lime and Development sky blue.</p>
+      <dl>
+        <dt>Feel</dt><dd>Organised and warm. The closest to a finished organisation website.</dd>
+        <dt>Type</dt><dd>One face, Hanken Grotesk, in two weights.</dd>
+        <dt>Look for</dt><dd>The masthead of photos and colour tiles, the 50&nbsp;km map with the time in Hopefield right now, the four colour chapters, the five steps as panels that open, and the footer made of tiles.</dd>
+        <dt>Trade-off</dt><dd>The least surprising. The easiest to carry across every page of the site.</dd>
+      </dl>
+      <div class="open"><a class="btn" href="c-chapters.html">Open version C</a></div>
+    </div>
+    <figure class="shots">
+      <a href="c-chapters.html" aria-label="Open version C"><img src="img/thumbs/c-d.jpg" width="1200" height="750" alt="Version C on a computer: a band of black-and-white photographs and colour tiles above the title Wind into opportunity"></a>
+      <a href="c-chapters.html" aria-label="Open version C on its own"><img src="img/thumbs/c-m.jpg" width="390" height="844" alt="Version C on a phone"></a>
+      <figcaption>First screen on a computer and on a phone</figcaption>
+    </figure>
+  </section>
+
+  <section class="same" aria-labelledby="same-h">
+    <h2 id="same-h">In all three</h2>
+    <ul>
+      <li>The Hopefield logo and the brand&rsquo;s blue, green and lime, set so every text colour passes accessibility contrast.</li>
+      <li>Only facts from the current site: no invented quotes, partners or figures.</li>
+      <li>The five photographs from the current gallery. No stock images.</li>
+      <li>&ldquo;Does your project fit?&rdquo;: four questions that check a project against the funding rules and list the documents to send.</li>
+      <li>Only the postal address for now. The contact email stays off the site until the new address is confirmed.</li>
+      <li>Movement that switches off for visitors who turn motion off on their device.</li>
+    </ul>
+    <p class="next">Choose A, B or C, or a mix (for example B&rsquo;s opening with C&rsquo;s funding chapters). The chosen style then goes onto every page of the site.</p>
+  </section>
+</div>
