@@ -88,48 +88,50 @@ On dark grounds, white is used at fixed opacities: 100% headings, 90% ledes, 82%
 
 | Role | Font | Weights | Fallback stack |
 |---|---|---|---|
-| Headings, display numbers, card titles, step numerals | **Fraunces** (optical sizing on) | 400, italic 400 (600 loaded, unused) | Georgia, "Times New Roman", serif |
-| Body, UI, labels, buttons, nav | **Outfit** | 300, 400, 500, 600 | system-ui, -apple-system, "Segoe UI", sans-serif |
+| Headings, display numbers, card titles, step numerals | **Bricolage Grotesque** (optical sizing on) | 800 extra bold, italic 800 | system-ui, -apple-system, "Segoe UI", sans-serif |
+| Body, UI, labels, buttons, nav | **Bricolage Grotesque** | 200–800 (body set at 400) | system-ui, -apple-system, "Segoe UI", sans-serif |
+
+One family, two registers: headings and figures run at Bricolage Grotesque's extra-bold cut (800) for weight and presence; body copy, nav and UI stay at its lighter weights for readability.
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:ital,opsz,wght@0,12..96,200..800;1,12..96,200..800&display=swap">
 ```
 
-In Word or PowerPoint without the fonts installed, use **Georgia** for Fraunces and **Calibri** for Outfit. The old WordPress site used Playfair Display and Source Sans Pro; those are retired.
+In Word or PowerPoint without the font installed, use **Calibri** or another grotesque sans. The old WordPress site used Playfair Display and Source Sans Pro, and the first version of this redesign used Fraunces and Outfit; all are retired.
 
 ### 4.2 Base
 
-`body { font: 400 1rem/1.6 Outfit; color: #393939; background: #fff; -webkit-font-smoothing: antialiased }` · `::selection { background: #88C549; color: #14171C }` · headings `text-wrap: balance`, paragraphs `text-wrap: pretty`.
+`body { font: 400 1rem/1.6 "Bricolage Grotesque"; color: #393939; background: #fff; -webkit-font-smoothing: antialiased }` · `::selection { background: #88C549; color: #14171C }` · headings `text-wrap: balance`, paragraphs `text-wrap: pretty`.
 
 ### 4.3 Type scale
 
 | Style | Font | Size | Weight | Line height | Other |
 |---|---|---|---|---|---|
-| **Display XL** (h1, heroes) | Fraunces | `clamp(2.75rem, 7vw, 4.5rem)` · 44–72 px | 400 | 1.05 | −0.01em; italic accent phrase in `#A8D672` |
-| **Display LG** (section h2) | Fraunces | `clamp(2.125rem, 4.4vw, 3rem)` · 34–48 px | 400 | 1.1 | `#393939` on light, white on dark |
-| **Display MD** | Fraunces | `clamp(1.875rem, 3.4vw, 2.5rem)` · 30–40 px | 400 | 1.15 | CTA blocks, sub-sections |
-| **Display SM** | Fraunces | `clamp(1.5rem, 2.4vw, 1.75rem)` · 24–28 px | 400 | 1.2 | Form and info-card titles |
-| Area title | Fraunces | 30 px | 400 | — | Strategy focus areas |
-| Card title | Fraunces | 22–24 px | 400 | 1.25 | Focus, step, send cards |
-| Figure number | Fraunces | `clamp(3rem, 7vw, 4.5rem)` · 48–72 px | 400 | 1 | 80% / 20% blocks; tabular figures |
-| Stat number | Fraunces | `clamp(2.5rem, 5vw, 3rem)` · 40–48 px | 400 | 1 | Brand blue `#1893CF`; tabular figures |
-| Legend number | Fraunces | 36 px | 400 | 1 | Funding split card |
-| **Eyebrow** | Outfit | 14 px | 500 | — | UPPERCASE, 0.2em tracking; `#11709F` on light, `#A8D672` on dark |
-| **Small label** | Outfit | 13 px | 600 | — | UPPERCASE, 0.15em; `#11709F` (card, list, footer and contact headings) |
-| Hero pill | Outfit | 12 px | 400 | — | UPPERCASE, 0.2em, white |
-| **Lede** | Outfit | 18 px | 400 | 1.6 | `#63666A` on light; white 90% on dark; max 40 rem |
-| Prose | Outfit | 17 px | 400 | 1.75 | `#63666A`; `<strong>` is 500 in `#393939` |
-| Body | Outfit | 16 px | 400 | 1.6 | `#393939` |
-| Card body | Outfit | 15 px | 400 | 1.6 | |
-| Nav link | Outfit | 15 px | 500 | — | Sentence case |
-| Button | Outfit | 16 px | 500 | 1.2 | Sentence case |
-| Note / form note | Outfit | 14 px | 400 | — | `#63666A` |
+| **Display XL** (h1, heroes) | Bricolage Grotesque | `clamp(2.75rem, 7vw, 4.5rem)` · 44–72 px | 800 | 1.02 | −0.02em; italic accent phrase in `#A8D672` |
+| **Display LG** (section h2) | Bricolage Grotesque | `clamp(2.125rem, 4.4vw, 3rem)` · 34–48 px | 800 | 1.05 | `#393939` on light, white on dark |
+| **Display MD** | Bricolage Grotesque | `clamp(1.875rem, 3.4vw, 2.5rem)` · 30–40 px | 800 | 1.1 | CTA blocks, sub-sections |
+| **Display SM** | Bricolage Grotesque | `clamp(1.5rem, 2.4vw, 1.75rem)` · 24–28 px | 800 | 1.15 | Form and info-card titles |
+| Area title | Bricolage Grotesque | 30 px | 800 | — | Strategy focus areas |
+| Card title | Bricolage Grotesque | 22–24 px | 800 | 1.25 | Focus, step, send cards |
+| Figure number | Bricolage Grotesque | `clamp(3rem, 7vw, 4.5rem)` · 48–72 px | 800 | 1 | 80% / 20% blocks; tabular figures |
+| Stat number | Bricolage Grotesque | `clamp(2.5rem, 5vw, 3rem)` · 40–48 px | 800 | 1 | Brand blue `#1893CF`; tabular figures |
+| Legend number | Bricolage Grotesque | 36 px | 800 | 1 | Funding split card |
+| **Eyebrow** | Bricolage Grotesque | 14 px | 500 | — | UPPERCASE, 0.2em tracking; `#11709F` on light, `#A8D672` on dark |
+| **Small label** | Bricolage Grotesque | 13 px | 600 | — | UPPERCASE, 0.15em; `#11709F` (card, list, footer and contact headings) |
+| Hero pill | Bricolage Grotesque | 12 px | 400 | — | UPPERCASE, 0.2em, white |
+| **Lede** | Bricolage Grotesque | 18 px | 400 | 1.6 | `#63666A` on light; white 90% on dark; max 40 rem |
+| Prose | Bricolage Grotesque | 17 px | 400 | 1.75 | `#63666A`; `<strong>` is 500 in `#393939` |
+| Body | Bricolage Grotesque | 16 px | 400 | 1.6 | `#393939` |
+| Card body | Bricolage Grotesque | 15 px | 400 | 1.6 | |
+| Nav link | Bricolage Grotesque | 15 px | 500 | — | Sentence case |
+| Button | Bricolage Grotesque | 16 px | 500 | 1.2 | Sentence case |
+| Note / form note | Bricolage Grotesque | 14 px | 400 | — | `#63666A` |
 
 ### 4.4 Type rules
 
-- **Serif for headings and numbers, sans for reading and clicking.** Fraunces stays at 400; it is never bolded.
+- **Extra bold for headings and numbers, regular weight for reading and clicking.** Headings, figures and card titles run at Bricolage Grotesque 800 (extra bold); body copy, nav and buttons stay at 400–600 for legibility.
 - **Hero headlines have two parts, and the second is italic:** *Harvesting the wind, **growing our community.*** · *Investing for the **long term.*** · *Apply for **funding.*** The italic part is lime only on dark grounds.
 - Sentence case everywhere: headings, buttons, nav. Only eyebrows, small labels and the hero pill are uppercase and tracked.
 - Figures use `font-variant-numeric: lining-nums tabular-nums`.
@@ -147,7 +149,7 @@ In Word or PowerPoint without the fonts installed, use **Georgia** for Fraunces 
 | `--gutter` | 24 px side padding (16 px at ≤380 px) |
 | `--section` | 112 px top and bottom (72 px at ≤767 px) |
 | `--header-h` | 80 px |
-| Home hero | `min-height: calc(92svh - 80px)`, content anchored to the bottom, 80 px bottom padding |
+| Home hero | `min-height: calc(100svh - 80px)` (full screen below the header), content anchored to the bottom, 80 px bottom padding; photo animates with a slow, large-scale Ken Burns zoom and pan (§10) |
 | Page hero | 88 px top, 80 px bottom; full-height variant `calc(80svh - 80px)` for thank-you and 404 |
 
 ### 5.2 Grids
@@ -232,7 +234,7 @@ Eyebrow → Display LG → optional lede. Where a section links onward, the head
 
 ```css
 .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 12px 28px;
-       border-radius: 999px; border: 1px solid transparent; font: 500 16px/1.2 Outfit; text-decoration: none;
+       border-radius: 999px; border: 1px solid transparent; font: 500 16px/1.2 "Bricolage Grotesque"; text-decoration: none;
        transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, transform 160ms var(--ease-out); }
 .btn:active { transform: scale(0.97); }
 .btn-accent  { background: #88C549; color: #14171C; }            /* main action on dark;  hover #9BD162 */
@@ -250,13 +252,13 @@ Eyebrow → Display LG → optional lede. Where a section links onward, the head
 
 | Card | Spec |
 |---|---|
-| **Stat tile** | `#E9F4FA`, r24, padding 32. Stat number (Fraunces 40–48 px, brand blue) over a 14 px muted label. Three across. Figures count up on first view. |
-| **Focus card** (on deep blue) | 1 px white 15% border, r24, padding 32. 32 px lime icon → Fraunces 24 px title → 15 px white 82% text. Hover: lifts 4 px, white 6% fill, lime 45% border. |
-| **Funding split card** | White, 1 px line, r24, padding 32, `--shadow-card`. Small label "Our funding principle" → 14 px split bar (80% blue + 20% green pills, 4 px gap) → legend (Fraunces 36 px figures with coloured dots, 15 px muted captions) → note under a rule: "Of the Local Company's budget each year." |
-| **Figure block pair** | 4fr : 2.4fr. 80% on deep blue, 20% on green-strong; white Fraunces 48–72 px figure with a 15 px label; min-height 208 px. |
-| **Step card** | White, 1 px line, r24, padding 32. 44 px lime circle with a Fraunces numeral → Fraunces 22 px title → muted body. **Only for real sequences.** |
+| **Stat tile** | `#E9F4FA`, r24, padding 32. Stat number (Bricolage Grotesque 800, 40–48 px, brand blue) over a 14 px muted label. Three across. Figures count up on first view. |
+| **Focus card** (on deep blue) | 1 px white 15% border, r24, padding 32. 32 px lime icon → Bricolage Grotesque 800, 24 px title → 15 px white 82% text. Hover: lifts 4 px, white 6% fill, lime 45% border. |
+| **Funding split card** | White, 1 px line, r24, padding 32, `--shadow-card`. Small label "Our funding principle" → 14 px split bar (80% blue + 20% green pills, 4 px gap) → legend (Bricolage Grotesque 800, 36 px figures with coloured dots, 15 px muted captions) → note under a rule: "Of the Local Company's budget each year." |
+| **Figure block pair** | 4fr : 2.4fr. 80% on deep blue, 20% on green-strong; white Bricolage Grotesque 800, 48–72 px figure with a 15 px label; min-height 208 px. |
+| **Step card** | White, 1 px line, r24, padding 32. 44 px lime circle with a Bricolage Grotesque numeral → Bricolage Grotesque 800, 22 px title → muted body. **Only for real sequences.** |
 | **Info card** | White on the tint band, r24, padding 32; list; closing note under a rule. |
-| **Send card** (on deep blue) | 1 px white 18% border, r24, padding 28. 28 px lime icon → Fraunces 22 px title → white 90% text; links `#A8D672`. |
+| **Send card** (on deep blue) | 1 px white 18% border, r24, padding 28. 28 px lime icon → Bricolage Grotesque 800, 22 px title → white 90% text; links `#A8D672`. |
 | **Contact card** | `#E9F4FA`, r24, padding 24. 24 px blue icon beside a small-label title, `#2C3A44` text, optional arrow link. |
 
 ### 7.7 Lists
@@ -267,11 +269,11 @@ Eyebrow → Display LG → optional lede. Where a section links onward, the head
 | **Dot list** | 6 px green dot, muted text. For objectives and criteria. |
 | **Ban list** (on deep blue) | Lime-light "no" icon, rows divided by white 15% rules. For exclusions. |
 | **Checklist chips** | `#E9F4FA` chips, r14, padding 12 × 16, blue file icon, qualifier in 14 px muted ("(schools and ECD centres)"). For documents to attach. |
-| **Clause list** | Italic Fraunces letter (*a*, *b*) in a 32 px tint circle. Only for quoting lettered legal clauses. |
+| **Clause list** | Italic Bricolage Grotesque letter (*a*, *b*) in a 32 px tint circle. Only for quoting lettered legal clauses. |
 
 ### 7.8 Strategy area row
 
-A full-width row between 1 px rules. Left (272 px): 52 px tint circle with a blue icon + Fraunces 30 px area name. Right, in two columns (1.5fr : 1fr): "Key projects (0–5 years)" as a tick list, "Objectives" as a dot list. Each heading is a small label.
+A full-width row between 1 px rules. Left (272 px): 52 px tint circle with a blue icon + Bricolage Grotesque 800, 30 px area name. Right, in two columns (1.5fr : 1fr): "Key projects (0–5 years)" as a tick list, "Objectives" as a dot list. Each heading is a small label.
 
 ### 7.9 Contact form
 
@@ -327,7 +329,7 @@ Centred, max 736 px: Display MD question ("Does your project fit our strategy?",
 |---|---|---|
 | Home hero headline | Each line rises out of a mask | 1000 ms ease-out, at 200 / 320 ms |
 | Home hero pill, lede, buttons | Fade + rise 24 px | 900 ms ease-out, at 100 / 520 / 640 ms |
-| Home hero photo | Slow zoom 1.1 → 1; drifts down 16% over the first screen of scroll (where supported) | 24 s ease-out; scroll-linked |
+| Home hero photo | Large-scale Ken Burns: continuous zoom 1 → 1.22 and a slow pan across the frame, looping for as long as the hero is in view; also drifts down 16% over the first screen of scroll (where supported) | 32 s ease-in-out, infinite alternate; scroll-drift linked separately |
 | Page hero content | Fade + rise 24 px, staggered | 800 ms ease-out, 80 ms steps |
 | Hero turbine | Fades in; rotor turns | 1400 ms; 18 s per turn, linear |
 | Scroll reveal | Fade + rise 24 px, once, staggered across grid children | 800 ms ease-out, 70 ms steps; fires at 12% visible |
@@ -403,9 +405,9 @@ Use these as written. Never invent figures, amounts, dates, beneficiaries or quo
 
 Only the website exists in this system so far. These rules extend it to other formats; confirm them the first time each format is made, then remove the "provisional" note.
 
-- **Social posts** (1080 × 1080 or 1080 × 1350): deep-blue `#0C5480` background, or a landscape photo under the ink overlay. Fraunces 400 headline about 76 px in white, with the two-part pattern and the italic part in `#A8D672`; Outfit 400 body about 32 px in white; the turbine motif at 16% where there's no photo. Logo top-left on a white plate. Website in Outfit 500 at the bottom. One message per post.
-- **Documents, letters, reports:** white page, logo top-left (15–18 mm tall), Fraunces headings in `#393939`, eyebrows in `#11709F`, Outfit body at 10.5–11 pt in `#393939`, tables with a `#E9F4FA` header row and `#E2E6EA` rules. Office fallbacks: Georgia and Calibri.
-- **Slides (16:9):** white content slides with eyebrow → Fraunces title → content; deep-blue section dividers carrying the turbine motif; the 80/20 split shown with the same blue/green bar.
+- **Social posts** (1080 × 1080 or 1080 × 1350): deep-blue `#0C5480` background, or a landscape photo under the ink overlay. Bricolage Grotesque 800 headline about 76 px in white, with the two-part pattern and the italic part in `#A8D672`; Bricolage Grotesque 400 body about 32 px in white; the turbine motif at 16% where there's no photo. Logo top-left on a white plate. Website in Bricolage Grotesque 500 at the bottom. One message per post.
+- **Documents, letters, reports:** white page, logo top-left (15–18 mm tall), Bricolage Grotesque 800 headings in `#393939`, eyebrows in `#11709F`, Bricolage Grotesque body at 10.5–11 pt in `#393939`, tables with a `#E9F4FA` header row and `#E2E6EA` rules. Office fallback: Calibri.
+- **Slides (16:9):** white content slides with eyebrow → Bricolage Grotesque 800 title → content; deep-blue section dividers carrying the turbine motif; the 80/20 split shown with the same blue/green bar.
 - **Print:** colours here are defined for screen. Get CMYK matches from the printer rather than converting by guesswork, and proof the lime and the logo's sun.
 
 ---
@@ -466,7 +468,7 @@ Also standard on every page:
 **Don't**
 - Don't put the logo on dark or busy backgrounds without a white plate.
 - Don't use brand blue or green for small text, or lime for any text on light.
-- Don't bold Fraunces or set headings in capitals.
+- Don't set headings in capitals, and don't drop below Bricolage Grotesque's extra-bold (800) cut for display type.
 - Don't add hues outside the palette, emoji or stock photos of people.
 - Don't invent figures, amounts, beneficiaries or quotes.
 - Don't publish Laverne Louw's name or email.
@@ -515,8 +517,8 @@ Also standard on every page:
   --hero-overlay: linear-gradient(to top, rgb(20 23 28 / 0.85), rgb(20 23 28 / 0.12) 60%, rgb(20 23 28 / 0.3));
 
   /* Type */
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --font-body: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Layout */
   --container: 80rem;
