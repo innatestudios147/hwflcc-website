@@ -148,3 +148,12 @@ dd { margin: 0; }
     <p class="next">Choose A, B or C, or a mix (for example B&rsquo;s opening with C&rsquo;s funding chapters). The chosen style then goes onto every page of the site.</p>
   </section>
 </div>
+<script>
+// Direct links: #version-a, #version-b and #version-c open that version straight away.
+(function () {
+  var pages = { "version-a": "a-sentence.html", "version-b": "b-poster.html", "version-c": "c-chapters.html" };
+  function go() { var p = pages[location.hash.slice(1)]; if (p) location.replace(p); }
+  go();
+  addEventListener("hashchange", go);
+})();
+</script>
